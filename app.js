@@ -8,7 +8,7 @@ const analyticsRoutes = require('./routes/analytics');
 const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
-const DB = require('./config/keys').DB;
+const DB = require('./config/keys');
 // initialization an app
 const app = express();
 // middlewares
