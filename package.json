@@ -1,0 +1,19 @@
+{
+  "name": "crm-system",
+  "version": "1.0.0",
+  "description": "CRM system on MEAN stack and REST API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Leonid Grudanov <grudanovleonid@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
