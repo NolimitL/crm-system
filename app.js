@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const passport = require('passport');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
@@ -9,6 +10,7 @@ const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
 const DB = require('./config/keys');
+const middlewarePassport = require('./middleware/passport');
 // initialization an app
 const app = express();
 // middlewares
@@ -16,6 +18,9 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+// passport routing protected
+app.use(passport.initialize());
+middlewarePassport(passport);
 // connecting to Database
 mongoose.connect(DB.MONGO_URL)
    .then(() => console.log('[Database is successfully connected]'))
