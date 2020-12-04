@@ -18,6 +18,8 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+// access to pictures
+app.use('/uploads', express.static('uploads'));
 // passport routing protected
 app.use(passport.initialize());
 middlewarePassport(passport);

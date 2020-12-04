@@ -9,7 +9,6 @@ const orderSchema = new Schema({
    order:{
       type: Number,
       required: true,
-
    },
    user:{
       type: Schema.Types.ObjectId,
