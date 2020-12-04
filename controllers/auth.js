@@ -41,7 +41,7 @@ module.exports.register = async function(req, res){
          message: 'User with this email is already registered. Use other.'
       });
    } else {
-      const salt = await bcrypt.genSalt(15);
+      const salt = await bcrypt.genSalt(10);
       const password = req.body.password;
       const user = new User({
          email: req.body.email,

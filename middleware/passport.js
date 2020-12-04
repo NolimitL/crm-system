@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 const options = {
-   jwtFromRequest: ExtractJwT.fromAuthHeaderAsBearerToken,
+   jwtFromRequest: ExtractJwT.fromAuthHeaderAsBearerToken(),
    secretOrKey: keys.jsonWebToken
 }
 
@@ -20,7 +20,7 @@ module.exports = function(passport){
                done(null, false);
             }
          } catch (error) {
-            
+            console.log("Error from auth!!!");
          }
       })
    )

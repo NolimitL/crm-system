@@ -1,12 +1,15 @@
 const express = require('express');
-const router = express.Router();
-const constroller = require('../controllers/category');
 const passport = require('passport');
+const upload = require('../middleware/upload');
+const constroller = require('../controllers/category');
+const router = express.Router();
 
-router.get('/', passport.authenticate('jwt', {session: false}), constroller.getAll);
-router.get('/:id', constroller.getById);
-router.delete('/:id', constroller.remove);
-router.post('/', constroller.create);
-router.patch('/:id', constroller.update);
+const PROTECT = passport.authenticate('jwt', {session: false});
+
+router.get('/', PROTECT, constroller.getAll);
+router.get('/:id', PROTECT, constroller.getById);
+router.delete('/:id', PROTECT, constroller.remove);
+router.post('/', PROTECT, upload.single('image'), constroller.create);
+router.patch('/:id', PROTECT, upload.single('image'), constroller.update);
 
 module.exports = router
